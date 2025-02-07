@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CountryCard from "./CountryCard";
 import { Button } from "./ui/button";
 const CityComponent = ({ city, lat, lon, country }) => {
+  
   const [weather, setWeather] = useState(null);
   const [places, setPlaces] = useState([]);
   const [countryData, setCountryData] = useState(null);
@@ -89,9 +90,11 @@ const CityComponent = ({ city, lat, lon, country }) => {
   const fetchCountry = useCallback(async () => {
     try {
       const countryRes = await axios.get(
-        `https://restcountries.com/v3.1/name/${encodeURIComponent(country)}`
+        `https://restcountries.com/v3.1/alpha/${encodeURIComponent(
+          country.toUpperCase()
+        )}`
       );
-      
+
       setCountryData(countryRes.data[0]);
     } catch (error) {
       console.error("Error fetching country data:", error);

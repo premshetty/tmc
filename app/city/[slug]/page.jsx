@@ -8,7 +8,7 @@ export default function CityPage({ params }) {
   const city = searchParams.get("city"); // Default to slug if missing
   const lat = searchParams.get("lat");
   const lon = searchParams.get("lon");
-  const country = searchParams.get("country");
+  const country = searchParams.get("country").toLocaleLowerCase();
   if (!cityName) {
     notFound();
   }

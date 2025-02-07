@@ -43,7 +43,7 @@ const DashBoardList = () => {
                     </Button>
                     <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">
                       <Link
-                        href={`/city/Mumbai?city=${city.city}&lat=${lat}&lon=${lon}6&country=${country}`}
+                        href={`/city/Mumbai?city=${city.city}&lat=${lat}&lon=${lon}6&country=${country.toLowerCase()}`}
                       >
                         View City
                       </Link>
