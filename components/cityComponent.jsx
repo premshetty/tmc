@@ -1,5 +1,5 @@
 "use client";
-import { useSavedCities } from "@/context/savedCitiesContext";
+import { useSavedCities } from "@/context/SavedCitiesContext";
 import axios from "axios";
 import { Cloud, Droplets, MapPin, Save, Trash, Wind } from "lucide-react";
 import Image from "next/image";

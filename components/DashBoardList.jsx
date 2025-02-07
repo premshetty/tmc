@@ -1,5 +1,5 @@
 "use client";
-import { useSavedCities } from "@/context/savedCitiesContext";
+import { useSavedCities } from "@/context/SavedCitiesContext";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
@@ -13,7 +13,7 @@ const DashBoardList = () => {
         {savedCities.length > 0 ? (
           savedCities.map((city) => {
             console.log(city);
-            
+
             const { lat, lon, country } = city;
             return (
               <div key={city.city} className="container mx-auto px-4 py-8">

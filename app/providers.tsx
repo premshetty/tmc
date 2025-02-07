@@ -1,7 +1,7 @@
 "use client";
 
 import { Toaster } from "@/components/ui/toaster";
-import { SavedCitiesProvider } from "@/context/savedCitiesContext";
+import { SavedCitiesProvider } from "@/context/SavedCitiesContext";
 import { ThemeProvider } from "next-themes";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
