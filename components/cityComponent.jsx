@@ -4,8 +4,8 @@ import axios from "axios";
 import { Cloud, Droplets, MapPin, Save, Trash, Wind } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import CountryCard from "./CountryCard";
 import { Button } from "./ui/button";
-
 const CityComponent = ({ city, lat, lon, country }) => {
   const [weather, setWeather] = useState(null);
   const [places, setPlaces] = useState([]);
@@ -79,7 +79,6 @@ const CityComponent = ({ city, lat, lon, country }) => {
       const imagesArray = await Promise.all(imagePromises);
       setPlaceImages(Object.assign({}, ...imagesArray));
       const cityImage = await fetchCityImage(city);
-      console.log(cityImage);
 
       setCityImage(cityImage);
     } catch (error) {
@@ -92,6 +91,7 @@ const CityComponent = ({ city, lat, lon, country }) => {
       const countryRes = await axios.get(
         `https://restcountries.com/v3.1/name/${encodeURIComponent(country)}`
       );
+      
       setCountryData(countryRes.data[0]);
     } catch (error) {
       console.error("Error fetching country data:", error);
@@ -172,6 +172,7 @@ const CityComponent = ({ city, lat, lon, country }) => {
         {isSaved ? "Delete" : "Save"} City
       </Button>
       {/* City Hero Image */}
+
       <div className="relative h-[300px] md:h-[400px]">
         <Image
           src={
@@ -188,12 +189,8 @@ const CityComponent = ({ city, lat, lon, country }) => {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {/* Weather Section */}
-          <div className="rounded-lg border bg-card p-6">
-            <h2 className="text-2xl font-semibold mb-4">Current Weather</h2>
-            {weatherContent}
-          </div>
 
           {/* Places Section */}
           <div className="rounded-lg border bg-card p-6">
@@ -225,6 +222,13 @@ const CityComponent = ({ city, lat, lon, country }) => {
             ) : (
               <p>No places found.</p>
             )}
+          </div>
+          <div className="rounded-lg border bg-card p-6">
+            <CountryCard countryData={countryData} />
+          </div>
+          <div className="rounded-lg border bg-card p-6">
+            <h2 className="text-2xl font-semibold mb-4">Current Weather</h2>
+            {weatherContent}
           </div>
         </div>
       </div>
