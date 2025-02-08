@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { PlaneTakeoff, MapPin, User } from 'lucide-react';
-import { ModeToggle } from '@/components/mode-toggle';
+import { ModeToggle } from "@/components/mode-toggle";
+import { cn } from "@/lib/utils";
+import { PlaneTakeoff } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -24,8 +23,8 @@ export function Navigation() {
             <Link
               href="/"
               className={cn(
-                'transition-colors hover:text-foreground/80',
-                pathname === '/' ? 'text-foreground' : 'text-foreground/60'
+                "transition-colors hover:text-foreground/80",
+                pathname === "/" ? "text-foreground" : "text-foreground/60"
               )}
             >
               Home
@@ -33,10 +32,10 @@ export function Navigation() {
             <Link
               href="/explore"
               className={cn(
-                'transition-colors hover:text-foreground/80',
-                pathname?.startsWith('/explore')
-                  ? 'text-foreground'
-                  : 'text-foreground/60'
+                "transition-colors hover:text-foreground/80",
+                pathname?.startsWith("/explore")
+                  ? "text-foreground"
+                  : "text-foreground/60"
               )}
             >
               Explore
@@ -44,10 +43,10 @@ export function Navigation() {
             <Link
               href="/dashboard"
               className={cn(
-                'transition-colors hover:text-foreground/80',
-                pathname?.startsWith('/dashboard')
-                  ? 'text-foreground'
-                  : 'text-foreground/60'
+                "transition-colors hover:text-foreground/80",
+                pathname?.startsWith("/dashboard")
+                  ? "text-foreground"
+                  : "text-foreground/60"
               )}
             >
               Dashboard

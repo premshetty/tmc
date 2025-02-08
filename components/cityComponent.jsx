@@ -6,8 +6,14 @@ import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CountryCard from "./CountryCard";
 import { Button } from "./ui/button";
-const CityComponent = ({ city, lat, lon, country }) => {
-  
+import { useSearchParams } from "next/navigation";
+const CityComponent = () => {
+  const searchParams = useSearchParams();
+  const city = searchParams.get("city"); // Default to slug if missing
+  const lat = searchParams.get("lat");
+  const lon = searchParams.get("lon");
+  const country = searchParams.get("country").toLocaleLowerCase();
+
   const [weather, setWeather] = useState(null);
   const [places, setPlaces] = useState([]);
   const [countryData, setCountryData] = useState(null);
