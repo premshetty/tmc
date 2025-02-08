@@ -1,12 +1,11 @@
 import { Navigation } from "@/components/navigation";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Travel Planner - Plan Your Next Adventure",
   description:
     "Discover and plan your next travel destination with real-time weather updates, local attractions, and comprehensive city information.",

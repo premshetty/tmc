@@ -1,7 +1,8 @@
 import CityComponent from "@/components/cityComponent";
 import axios from "axios";
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata({ params }) {
   const cityName = params.slug;
+  console.log(cityName);
 
   // Fetch city image from Wikipedia API
   const fetchCityImage = async (query) => {

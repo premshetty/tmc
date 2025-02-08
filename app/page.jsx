@@ -98,7 +98,7 @@ export default function Home() {
             return (
               <Link
                 key={city}
-                href={`/city/${city.city}?city=${city}&lat=${lat}&lon=${lon}6&country=${country}`}
+                href={`/city/${city}?city=${city}&lat=${lat}&lon=${lon}6&country=${country}`}
                 className="group relative overflow-hidden rounded-lg"
               >
                 <div className="aspect-[4/3]">
